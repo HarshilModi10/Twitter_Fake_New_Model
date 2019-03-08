@@ -6,10 +6,10 @@
 Depicted below is are the 4 graphing options available for the representation of the same data using 1049 nodes and 1000 connections.
 
 ### Graphing Options
-![Original](graph_states/graph_state_fg.png)
-![Original](graph_states/graph_state_kg.png)
-![Original](graph_states/graph_state_lg.png)
-![Original](graph_states/graph_state_random.png)
+![Original](graph_states/dgraph_state_fg.png)
+![Original](graph_states/dgraph_state_kg.png)
+![Original](graph_states/dgraph_state_lg.png)
+![Original](graph_states/dgraph_state_random.png)
 
 ### Sources:
 I used the official igraph website for assitiance in creating these models: 
