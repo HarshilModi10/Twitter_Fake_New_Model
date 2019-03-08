@@ -8,15 +8,15 @@ Depicted below is are the 4 graphing options available for the representation of
 ### Graphing Options
 
 <div>
-	<img src="graph_states/dgraph_state_fg.png" style="float:left;padding-right:30px;" alt="drawing" width="300"/>
-	<img src="graph_states/dgraph_state_kg.png" style="float:right;" alt="drawing" width="300"/>
+	<img src="graph_states/dgraph_state_fg.png" style="float:left;padding-right:30px;padding:10px" alt="drawing" width="300"/>
+	<img src="graph_states/dgraph_state_kg.png" style="float:right;padding:10px" alt="drawing" width="300"/>
 </div>
 
 </br>
 
 <div>
-	<img src="graph_states/dgraph_state_lg.png" style="float:left;padding-right:30px;" alt="drawing" width="300"/>
-	<img src="graph_states/dgraph_state_random.png" style="float:right;" alt="drawing" width="300"/>
+	<img src="graph_states/dgraph_state_lg.png" style="float:left;padding-right:30px;padding:10px" alt="drawing" width="300"/>
+	<img src="graph_states/dgraph_state_random.png" style="float:right;padding:10px" alt="drawing" width="300"/>
 </div>
 
 ### Sources:
