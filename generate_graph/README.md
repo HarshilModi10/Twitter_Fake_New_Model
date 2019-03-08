@@ -7,12 +7,12 @@ Depicted below is are the 4 graphing options available for the representation of
 
 ### Graphing Options
 
-<img src="graph_states/dgraph_state_fg.png" alt="drawing" width="200"/>
-
-![Original](graph_states/dgraph_state_kg.png)
-![Original](graph_states/dgraph_state_lg.png)
-![Original](graph_states/dgraph_state_random.png)
-
+<img src="graph_states/dgraph_state_fg.png" alt="drawing" width="300"/>
+<img src="graph_states/dgraph_state_kg.png" alt="drawing" width="300"/>
+</br>
+<img src="graph_states/dgraph_state_lg.png" alt="drawing" width="300"/>
+<img src="graph_states/dgraph_state_random.png" alt="drawing" width="300"/>
+</br>
 ### Sources:
 I used the official igraph website for assitiance in creating these models: 
 * (https://igraph.org/python/doc/tutorial/tutorial.html)
