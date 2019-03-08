@@ -6,7 +6,9 @@
 Depicted below is are the 4 graphing options available for the representation of the same data using 1049 nodes and 1000 connections.
 
 ### Graphing Options
-![Original](graph_states/dgraph_state_fg.png)
+
+<img src="graph_states/dgraph_state_fg.png" alt="drawing" width="200"/>
+
 ![Original](graph_states/dgraph_state_kg.png)
 ![Original](graph_states/dgraph_state_lg.png)
 ![Original](graph_states/dgraph_state_random.png)
