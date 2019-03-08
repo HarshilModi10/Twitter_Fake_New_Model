@@ -7,8 +7,10 @@ Depicted below is are the 4 graphing options available for the representation of
 
 ### Graphing Options
 
-<img src="graph_states/dgraph_state_fg.png" alt="drawing" width="300"/>
-<img src="graph_states/dgraph_state_kg.png" alt="drawing" width="300"/>
+<div>
+<img src="graph_states/dgraph_state_fg.png" style="float:left;" alt="drawing" width="300"/>
+<img src="graph_states/dgraph_state_kg.png" style="float:right;" alt="drawing" width="300"/>
+</div>
 </br>
 <img src="graph_states/dgraph_state_lg.png" alt="drawing" width="300"/>
 <img src="graph_states/dgraph_state_random.png" alt="drawing" width="300"/>
