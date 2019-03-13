@@ -2,17 +2,21 @@
     background-color: #00acee;
     color: white;
     text-align: center;
+    margin: 0 auto;
 }
 
 body {
     background-color: #c0deed;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.6em;
 }
 
-#container {
+.container {
+    width: 80%;
+    margin: 0 auto;
     background-color: white;
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #problem {
@@ -26,19 +30,23 @@ body {
     padding: 0;
     overflow: hidden;
     background-color: #00acee;
+    
 
 }
 
-#navigation li {
+#navigation a:hover {
+    background-color: white;
+    color: #00acee;
+}
+
+#navigation a {
     float: left;
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    margin: 0;
 }
 
-#navigation li:hover {
-    background-color: white;
-    color: #00acee;
-}
+
