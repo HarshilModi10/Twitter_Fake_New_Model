@@ -8,6 +8,8 @@ public class TwitterUserDiGraph {
 	private int V; // number of vertices in this digraph
 	private int E; // number of edges in this digraph
 	private Map<Integer, List<Integer>> nodeMap; 
+	// Need to add list of visited/retweeted nodes as a global variable
+	// Add accessor methods to modify that list
 
 	public TwitterUserDiGraph(File in) throws Exception {
 		

@@ -27,6 +27,8 @@ public class RetweetTest {
 		G.outDegree(8);
 		G.outDegree(9);
 		
+		
+		// Will put this in a for loop for each iteration
 		BreadthFirstSearch.BFS(2, G.getVertices(), G);
 	}
 }
