@@ -7,12 +7,12 @@ public class TwitterUserDiGraph {
 
 	private int V; // number of vertices in this digraph
 	private int E; // number of edges in this digraph
-	private Map<Integer, List<Integer>> adj; // adj[v] = adjacency list for vertex v
+	private Map<Integer, List<Integer>> nodeMap; 
 
 	public TwitterUserDiGraph(File in) throws Exception {
 		
 		BufferedReader reader = new BufferedReader(new FileReader(in));
-		adj = new HashMap<Integer, List<Integer>>();
+		nodeMap = new HashMap<Integer, List<Integer>>();
 		String currLine = reader.readLine();
 		
 		while (currLine != null) {
@@ -21,14 +21,14 @@ public class TwitterUserDiGraph {
 			Integer node = Integer.parseInt(temp[0]);
 			Integer adjNode = Integer.parseInt(temp[1]);
 
-			if (adj.containsKey(node)) {
-				if (!adj.get(node).contains(adjNode)) {
-					adj.get(node).add(adjNode);
+			if (nodeMap.containsKey(node)) {
+				if (!nodeMap.get(node).contains(adjNode)) {
+					nodeMap.get(node).add(adjNode);
 				}
 			} else {
 				List<Integer> tempList = new ArrayList<Integer>();
 				tempList.add(adjNode);
-				adj.put(node, tempList);
+				nodeMap.put(node, tempList);
 			}
 
 			currLine = reader.readLine();
@@ -55,10 +55,14 @@ public class TwitterUserDiGraph {
 	public int getEdges() {
 		return E;
 	}
+	
+	public Map<Integer, List<Integer>> getNodeMap() {
+		return nodeMap;
+	}
 
 	public List<Integer> getAdjacentNodes(int v) {
-		if (adj.containsKey(v))
-			return adj.get(v);
+		if (nodeMap.containsKey(v))
+			return nodeMap.get(v);
 		else if (v <= getVertices())
 			return null;
 		else
@@ -67,7 +71,7 @@ public class TwitterUserDiGraph {
 
 	public Integer outDegree(int v) {
 		if (validateVertex(v))
-			return adj.get(v).size();
+			return nodeMap.get(v).size();
 		else if (v <= getVertices())
 			return 0;
 		else
@@ -76,34 +80,10 @@ public class TwitterUserDiGraph {
 	}
 	
 	public boolean validateVertex(int v) {
-		if (adj.containsKey(v))
+		if (nodeMap.containsKey(v))
 			return true;
 		else
 			return false;
 	}
 
-	public static void main(String[] args) throws Exception {
-		File in = new File("sample.txt");
-		TwitterUserDiGraph G = new TwitterUserDiGraph(in);
-		for (Map.Entry<Integer, List<Integer>> entry : G.adj.entrySet()) {
-			Integer key = entry.getKey();
-			List<Integer> value = entry.getValue();
-			System.out.println(key + " :    " + value);
-		}
-		System.out.println( "Number of Edges:     " +  G.getEdges() );
-		System.out.println( "Number of Vertices:   " +  G.getVertices() );
-		System.out.println(  );
-		
-		G.outDegree(1);
-		G.outDegree(2);
-		G.outDegree(3);
-		G.outDegree(4);
-		G.outDegree(5);
-		G.outDegree(6);
-		G.outDegree(7);
-		G.outDegree(8);
-		G.outDegree(9);
-		
-		BreadthFirstSearch.BFS(9, G.getVertices(), G);
-	}
 }
