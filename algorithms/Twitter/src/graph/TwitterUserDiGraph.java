@@ -24,6 +24,7 @@ public class TwitterUserDiGraph {
 			Integer adjNode = Integer.parseInt(temp[1]);
 
 			if (nodeMap.containsKey(node)) {
+				// Replace contains with a binary search, need to do a insertion sort as well
 				if (!nodeMap.get(node).contains(adjNode)) {
 					nodeMap.get(node).add(adjNode);
 				}
@@ -42,8 +43,7 @@ public class TwitterUserDiGraph {
 
 	/**
 	 * Returns the number of vertices in this digraph.
-	 *
-	 * @return the number of vertices in this digraph
+	 * @return An integer representing the number of vertices in this digraph
 	 */
 	public int getVertices() {
 		return V;
@@ -51,8 +51,7 @@ public class TwitterUserDiGraph {
 
 	/**
 	 * Returns the number of edges in this digraph.
-	 *
-	 * @return the number of edges in this digraph
+	 * @return An integer representing the number of edges in this digraph
 	 */
 	public int getEdges() {
 		return E;
