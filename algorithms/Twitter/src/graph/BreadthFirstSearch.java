@@ -1,6 +1,9 @@
 package graph;
  
+import java.io.File;
+import java.io.IOException;
 import java.util.*; 
+
   
 // This class represents a directed graph using adjacency list 
 // representation 
@@ -8,11 +11,12 @@ public class BreadthFirstSearch {
 	
 	// We need to have this look at the global list instead of initializing a new one every time.
 	// Also need to add another parameter that represents the length of time of iterations
-	
+
 	
 	
     // prints BFS traversal from a given source s 
-    public static void BFS(int source, int size, TwitterUserDiGraph G, boolean[] retweeted, int curTime) {
+    public static void BFS(int source, int size, TwitterUserDiGraph G, boolean[] retweeted, int curTime, Vector<Integer> printArray) {
+    	
     	
         // Mark all the vertices as not visited(By default 
         // set as false)
@@ -25,34 +29,48 @@ public class BreadthFirstSearch {
         // Mark the current node as visited and enqueue it 
         marked[source] = true;
         retweeted[source] = true;
-        queue.add(source); 
-  
+        queue.add(source);
+        
+        
         while (queue.size() != 0) { 
         	
             // Dequeue a vertex from queue and print it 
             source = queue.poll(); 
-            System.out.print(source + " "); 
+
+ 
   
             // Get all adjacent vertices of the dequeued vertex s 
             // If an adjacent has not been visited, then mark it 
             // visited and enqueue it 
             List<Integer> temp = G.getAdjacentNodes(source);
             int i = 0;
+           
+            
+            
+            
             // Every time a node is marked we also have to add it to the text file
             while (i < G.outDegree(source)) { 
                 int j = temp.get(i); //j is the current node in the adjacency list of source (source is currently retweeted)
+                
                 //to only consider paths retweeted we need to add 
                 i++;
                 if (!marked[j]) { 
                     marked[j] =  true;
-                    if (!retweeted[j] && RandomGenerator.getChance(curTime) > 0.1) {	// Subject to Change
+                    if (!retweeted[j] && RandomGenerator.getChance(curTime) > 0.1  ) {	// Subject to Change
                     	retweeted[j] = true;
-                    	
+                    	queue.add(j);
+                    	printArray.add(j);
                     }
-                    queue.add(j); 
+                    else if (retweeted[j]) {
+                    	queue.add(j);
+                    }
                 } 
-            } 
-        } 
+            }
+            
+        }
+        
+
+
     }
 }
   

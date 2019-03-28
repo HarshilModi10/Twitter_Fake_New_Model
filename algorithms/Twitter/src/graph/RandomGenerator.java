@@ -39,7 +39,7 @@ public class RandomGenerator {
 		double k = Math.log(0.9) / 0.9;
 		
 		double chance = Math.exp(k * time) * randomChance;
-		System.out.println(chance);
+
 		return chance;
 		
 	}

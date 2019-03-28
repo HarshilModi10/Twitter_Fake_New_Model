@@ -42,13 +42,18 @@ public class RetweetTest {
 		// Will put this in a for loop for each iteration
 
 		
-		boolean[] retweet = new boolean[G.getVertices()];
+		boolean[] retweet = new boolean[G.getVertices() + 1];
 		Arrays.fill(retweet, false);
 		int currTime = 10;
-		for (int i = 0; i < 24; i++) {
-			BreadthFirstSearch.BFS(2, G.getVertices(), G, retweet, currTime);
+		Vector<Vector<Integer>> arr = new Vector<Vector<Integer>>();
+		arr.add(new Vector<Integer>());
+		arr.elementAt(0).add(2);
+		for (int i = 1; i <= 24; i++) {
+			arr.add(new Vector<Integer>());
+			BreadthFirstSearch.BFS(2, G.getVertices(), G, retweet, currTime, arr.elementAt(i));
 			currTime++;
 		}
+		printText.print(arr);
 		
 		
 	}
