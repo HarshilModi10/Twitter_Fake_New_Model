@@ -1,8 +1,7 @@
 package graph;
 
 import java.io.File;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class RetweetTest {
 	public static void main(String[] args) throws Exception {
@@ -27,8 +26,30 @@ public class RetweetTest {
 		G.outDegree(8);
 		G.outDegree(9);
 		
+		List<Integer> tempList = new ArrayList<Integer>();
 		
+		tempList.add(0);
+		tempList.add(1);
+		tempList.add(2);
+		tempList.add(3);
+		tempList.add(4);
+		tempList.add(5);
+		tempList.add(6);
+		tempList.add(7);
+		tempList.add(8);
+		boolean temp = BinarySearch.Search(tempList, 0, 8, 4);
+		System.out.println(temp);
 		// Will put this in a for loop for each iteration
-		BreadthFirstSearch.BFS(2, G.getVertices(), G);
+
+		
+		boolean[] retweet = new boolean[G.getVertices()];
+		Arrays.fill(retweet, false);
+		int currTime = 10;
+		for (int i = 0; i < 24; i++) {
+			BreadthFirstSearch.BFS(2, G.getVertices(), G, retweet, currTime);
+			currTime++;
+		}
+		
+		
 	}
 }

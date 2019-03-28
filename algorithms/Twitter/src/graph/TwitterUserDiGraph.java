@@ -25,8 +25,9 @@ public class TwitterUserDiGraph {
 
 			if (nodeMap.containsKey(node)) {
 				// Replace contains with a binary search, need to do a insertion sort as well
-				if (!nodeMap.get(node).contains(adjNode)) {
+				if ( !BinarySearch.Search(nodeMap.get(node), 0, nodeMap.get(node).size() - 1, adjNode) ) {
 					nodeMap.get(node).add(adjNode);
+					Insertion.sort(nodeMap.get(node));
 				}
 			} else {
 				List<Integer> tempList = new ArrayList<Integer>();
@@ -56,6 +57,7 @@ public class TwitterUserDiGraph {
 	public int getEdges() {
 		return E;
 	}
+
 	
 	public Map<Integer, List<Integer>> getNodeMap() {
 		return nodeMap;

@@ -12,37 +12,43 @@ public class BreadthFirstSearch {
 	
 	
     // prints BFS traversal from a given source s 
-    public static void BFS(int s, int n, TwitterUserDiGraph G) {
+    public static void BFS(int source, int size, TwitterUserDiGraph G, boolean[] retweeted, int curTime) {
     	
         // Mark all the vertices as not visited(By default 
         // set as false)
-    	boolean[] marked = new boolean[n+1];
+    	boolean[] marked = new boolean[size+1];
     	Arrays.fill(marked, false);
   
         // Create a queue for BFS 
         LinkedList<Integer> queue = new LinkedList<Integer>(); 
   
         // Mark the current node as visited and enqueue it 
-        marked[s] = true; 
-        queue.add(s); 
+        marked[source] = true;
+        retweeted[source] = true;
+        queue.add(source); 
   
         while (queue.size() != 0) { 
         	
             // Dequeue a vertex from queue and print it 
-            s = queue.poll(); 
-            System.out.print(s + " "); 
+            source = queue.poll(); 
+            System.out.print(source + " "); 
   
             // Get all adjacent vertices of the dequeued vertex s 
-            // If a adjacent has not been visited, then mark it 
+            // If an adjacent has not been visited, then mark it 
             // visited and enqueue it 
-            List<Integer> temp = G.getAdjacentNodes(s);
+            List<Integer> temp = G.getAdjacentNodes(source);
             int i = 0;
             // Every time a node is marked we also have to add it to the text file
-            while (i < G.outDegree(s)) { 
-                int j = temp.get(i);
+            while (i < G.outDegree(source)) { 
+                int j = temp.get(i); //j is the current node in the adjacency list of source (source is currently retweeted)
+                //to only consider paths retweeted we need to add 
                 i++;
                 if (!marked[j]) { 
-                    marked[j] =  true; 
+                    marked[j] =  true;
+                    if (!retweeted[j] && RandomGenerator.getChance(curTime) > 0.1) {	// Subject to Change
+                    	retweeted[j] = true;
+                    	
+                    }
                     queue.add(j); 
                 } 
             } 

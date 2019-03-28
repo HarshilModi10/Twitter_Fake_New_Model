@@ -16,7 +16,7 @@ public class BinarySearch {
 	 * @param right - An integer value representing the rightmost index in the sublist
 	 * @param x - An integer representing the value we are searching for
 	 */
-	public static boolean Search(ArrayList<Integer> list, int left, int right, int x) {
+	public static boolean Search(List<Integer> list, int left, int right, int x) {
 		// Creating the midpoint of the subarray
 		if (right >= left) { 
             int mid = left + (right - left) / 2; 
