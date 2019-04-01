@@ -1,0 +1,22 @@
+.section-about {
+    background-color: $color-twittergrey;
+    padding: 25rem 0;
+    margin-top: -20vh;
+}
+
+.section-features {
+    margin-top: -30vh;
+    padding: 20rem 0;
+    background-image: linear-gradient(to bottom ,
+    rgba($color-twitterblue, 0.60),
+    rgba($color-twittergrey, 0.60)),
+     url(../images/cloud.jpg);
+     background-size: cover;
+    
+}
+
+.section-stories {
+    padding: 15rem 0;
+    margin-top: -30vh;
+    background-color: $color-twittergrey;
+}
