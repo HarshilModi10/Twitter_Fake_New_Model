@@ -1,0 +1,275 @@
+@keyframes moveInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+.heading-primary {
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 60px; }
+  .heading-primary--main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    animation-name: moveInTop;
+    animation-duration: 2s; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 25px;
+    animation-name: moveInBottom;
+    animation-duration: 2s; }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777777;
+  padding: 30px; }
+
+.heading-secondary {
+  font-size: 3.5rem;
+  color: white;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  letter-spacing: 10px;
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text; }
+
+.heading-tertiary {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.paragraph {
+  font-size: 1.6rem; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-top-12 {
+  margin-top: -12rem; }
+
+.u-margin-bottom-big {
+  margin-bottom: 7rem; }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem; }
+
+/* link and visited are done the same so that the 
+button does not change after being clicked once */
+.btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  /* treated as text so we can use center in the text-box container*/
+  border-radius: 10rem;
+  transition: all .2s;
+  position: relative; }
+
+.btn--white {
+  background-color: white;
+  color: grey; }
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  /* 0 px in X 10px in Y 20px of blur */ }
+
+.btn:active {
+  transform: translate(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  /* smaller shadow on click */ }
+
+.btn-text:link, .btn-text:visited {
+  font-size: 1.6rem;
+  color: #00acee;
+  display: inline-block;
+  padding: 3px;
+  border-radius: 25px; }
+
+.btn-text:hover {
+  background-color: #00acee;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+  text-decoration: none; }
+
+.btn-text:active {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  transform: translate(0);
+  text-decoration: none; }
+
+.composition {
+  position: relative;
+  margin-top: 8rem; }
+  .composition__photo {
+    width: 55%;
+    height: 15rem;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+    transition: all .2s; }
+    .composition__photo--p1 {
+      left: 0;
+      top: -0.5rem; }
+    .composition__photo--p2 {
+      right: 0;
+      top: 2rem; }
+    .composition__photo--p3 {
+      left: 20%;
+      top: 10rem; }
+    .composition__photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+      z-index: 20; }
+
+.feature-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  transition: transform .3s; }
+  .feature-box__icon {
+    font-size: 6rem;
+    margin-bottom: .5rem;
+    display: inline-block;
+    color: #00acee; }
+  .feature-box:hover {
+    transform: translateY(-1.5rem) scale(1.03); }
+
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 3px;
+  padding: 2rem;
+  font-size: 1.6rem;
+  transform: skewX(-7deg); }
+  .story > * {
+    transform: skewX(7deg); }
+  .story__shape {
+    width: 10rem;
+    height: 10rem;
+    float: left;
+    shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-1rem) skewX(7deg);
+    position: relative; }
+  .story__img {
+    width: 100%; }
+  .story__text {
+    transform: skewX(7deg); }
+  .story__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden; }
+  .story:hover .story__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%); }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to bottom, rgba(0, 172, 238, 0.6), rgba(192, 222, 237, 0.6)), url(../images/cloud.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    top: 2px;
+    left: 2px; }
+  .header__logo {
+    height: 75px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    opacity: 0.5; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+
+.row {
+  max-width: 114rem;
+  margin: 0 5rem; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-3 {
+    width: calc( 2 *  ((100% - 2 * 6rem) / 3) + 6rem); }
+  .row .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * 6rem) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * 6rem) / 4) +  2 * 6rem); }
+
+.section-about {
+  background-color: #c0deed;
+  padding: 25rem 0;
+  margin-top: -20vh; }
+
+.section-features {
+  margin-top: -30vh;
+  padding: 20rem 0;
+  background-image: linear-gradient(to bottom, rgba(0, 172, 238, 0.6), rgba(192, 222, 237, 0.6)), url(../images/cloud.jpg);
+  background-size: cover; }
+
+.section-stories {
+  padding: 15rem 0;
+  margin-top: -30vh;
+  background-color: #c0deed; }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  box-sizing: border-box; }
