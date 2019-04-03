@@ -11,6 +11,7 @@ public class RandomGenerator {
 	
 	/**
 	 * This method returns a boolean value on what the chance is for a user
+	 * @param time - This represents the current time that users are looking at the tweet
 	 */
 	public static double getChance(int time) {
 		// The times that users are most active on twitter
@@ -34,7 +35,6 @@ public class RandomGenerator {
 		double randomChance = Math.random();
 		
 		double tempChance = peakChance * retweetChance;
-		
 		
 		double k = Math.log(0.9) / 0.9;
 		

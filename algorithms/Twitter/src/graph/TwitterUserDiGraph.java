@@ -3,15 +3,23 @@ package graph;
 import java.io.*;
 import java.util.*;
 
+/**
+ * This class makes calls to the other classes to run bfs and print the results to the output file
+ * @author Justin Rosner and Justin Prez
+ * @since 03/27/2019
+ */
 public class TwitterUserDiGraph {
 
 	private int V; // number of vertices in this digraph
 	private int E; // number of edges in this digraph
-	private Map<Integer, List<Integer>> nodeMap; 
-	// Need to add list of visited/retweeted nodes as a global variable
-	// Add accessor methods to modify that list
+	private Map<Integer, List<Integer>> nodeMap; // Hashmap containing the adjacency lists
 
-	public TwitterUserDiGraph(File in) throws Exception {
+	/**
+	 * This method sets up the graph by reading from an input file
+	 * @param in - A text file that contains all of the twitter users and the accounts that follow them
+	 * @throws IOException - When there is a problem reading from the text file
+	 */
+	public TwitterUserDiGraph(File in) throws IOException {
 		
 		BufferedReader reader = new BufferedReader(new FileReader(in));
 		nodeMap = new HashMap<Integer, List<Integer>>();
@@ -58,11 +66,19 @@ public class TwitterUserDiGraph {
 		return E;
 	}
 
-	
+	/**
+	 * This method returns the hashmap containing the adjacency lists of the graph
+	 * @return A hashmap
+	 */
 	public Map<Integer, List<Integer>> getNodeMap() {
 		return nodeMap;
 	}
 
+	/**
+	 * This method returns a list of all the adjacent vertices to the given vertex
+	 * @param v - An integer representing the given vertex
+	 * @return A list of integers representing the vertices adjacent to the given vertex
+	 */
 	public List<Integer> getAdjacentNodes(int v) {
 		if (nodeMap.containsKey(v))
 			return nodeMap.get(v);
@@ -72,6 +88,11 @@ public class TwitterUserDiGraph {
 			throw new IllegalArgumentException("Node not defined within bounds of the Graph");
 	}
 
+	/**
+	 * This method returns the number of edges coming out of a given vertex
+	 * @param v - An integer representing a vertex
+	 * @return An integer denoting the number of edges coming out of the specified vertex
+	 */
 	public Integer outDegree(int v) {
 		if (validateVertex(v))
 			return nodeMap.get(v).size();
@@ -82,11 +103,13 @@ public class TwitterUserDiGraph {
 		
 	}
 	
+	/**
+	 * This method checks to see if a vertex is valid/is in the hashmap
+	 * @param v - An integer specifying the vertex to be checked
+	 * @return A boolean value denoting if the vertex is contained in the hashmap
+	 */
 	public boolean validateVertex(int v) {
-		if (nodeMap.containsKey(v))
-			return true;
-		else
-			return false;
+		return nodeMap.containsKey(v);
 	}
 
 }

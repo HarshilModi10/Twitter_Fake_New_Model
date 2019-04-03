@@ -3,6 +3,11 @@ package graph;
 import java.io.File;
 import java.util.*;
 
+/**
+ * This class makes calls to the other classes to run bfs and print the results to the output file
+ * @author Justin Rosner and Justin Prez
+ * @since 03/27/2019
+ */
 public class RetweetTest {
 	public static void main(String[] args) throws Exception {
 		File in = new File("sample.txt");
