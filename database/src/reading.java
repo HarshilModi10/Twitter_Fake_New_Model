@@ -15,19 +15,22 @@ public class reading {
 
 	public static void main(String[] args)throws Exception 
 	  { 
-	  // We need to provide file path as the parameter: 
-	  // double backquote is to avoid compiler interpret words 
-	  // like \test as \t (ie. as a escape sequence) 
+
+	  //This part connects to the local file connections and is used to write to the database
 	  File file = new File("connection.txt"); 
 	  Map<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
 	  
+	  //This is the local host connection for connecting to the MongoDB datbase
 	  MongoClient mongoClient = new MongoClient( "localhost", 27017);
-	  System.out.println("connec");
+	  
+	  //This is the name of my DB
 	  MongoDatabase database = mongoClient.getDatabase("Twitter_Connections");
+	  
+	  //this is the name of my collection
 	  MongoCollection<Document> collection = database.getCollection("Contacts");	  
 	  
-	  BufferedReader br = new BufferedReader(new FileReader(file)); 
-	  
+	  //used for file reading and writing
+	  BufferedReader br = new BufferedReader(new FileReader(file)); 	  
 	  String st; 
 	  while ((st = br.readLine()) != null)
 	  {
@@ -43,12 +46,12 @@ public class reading {
 		  }
 		  
 	  }
+	  
+	  //Used to write to create a Document and write to a database
 	  for (Map.Entry<String, ArrayList<String>> entry : map.entrySet()) {
 		  Document doc = new Document("name", entry.getKey())
-	                .append("Connections", entry.getValue());
-	                
-			
-			collection.insertOne(doc);
+	                .append("Connections", entry.getValue());  
+		  collection.insertOne(doc);
 	  }
 		  
 	    
