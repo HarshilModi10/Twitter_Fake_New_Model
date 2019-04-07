@@ -1,0 +1,56 @@
+/* link and visited are done the same so that the 
+button does not change after being clicked once */
+
+.btn {
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 15px 40px;
+        display: inline-block; /* treated as text so we can use center in the text-box container*/
+        border-radius: 10rem;
+        transition: all .2s;
+        position: relative;
+    }
+
+    &--white {
+        background-color: white;
+        color: grey;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba($color-black,0.2);   /* 0 px in X 10px in Y 20px of blur */
+    }
+
+    &:active {
+        transform: translate(-1px);
+        box-shadow: 0 5px 10px rgba($color-black,0.2); /* smaller shadow on click */
+    }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-sunsetpurple;
+        display: inline-block;
+        padding: 3px;
+        border-radius: 25px;
+        
+    }
+
+    &:hover {
+        background-color: $color-sunsetpurple;
+        color: white;
+        box-shadow: 0 10px 20px rgba(black, .25);
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+
+    &:active {
+        box-shadow: 0 5px 10px rgba(black, .25);
+        transform: translate(0);
+        text-decoration: none;
+    }
+}
