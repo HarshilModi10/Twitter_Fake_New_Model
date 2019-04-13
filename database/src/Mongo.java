@@ -1,39 +1,37 @@
  
 import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import com.mongodb.ServerAddress;
-
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoCollection;
-
 import org.bson.Document;
-import java.util.Arrays;
-import com.mongodb.Block;
-
-import com.mongodb.client.MongoCursor;
-import static com.mongodb.client.model.Filters.*;
-import com.mongodb.client.result.DeleteResult;
-import static com.mongodb.client.model.Updates.*;
-import com.mongodb.client.result.UpdateResult;
+import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Map;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 public class Mongo {
 
-	public static void main(String[] args) {
-		// Old version, uses Mongo
+
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) throws Exception  {
 		
-		MongoClient mongoClient = new MongoClient( "localhost", 27017);
-		System.out.println("connec");
-		MongoDatabase database = mongoClient.getDatabase("shopDB");
-		MongoCollection<Document> collection = database.getCollection("test");
+		//The data from the database will be read and presented in this format below
+		Map<Integer, List<Integer>> vertices = new HashMap<Integer, List<Integer>>();
+
+		//Connecting to the database 
+		MongoClient mongoClient = new MongoClient("localhost", 27017);
+		MongoDatabase database = mongoClient.getDatabase("Twitter_Connections");
+		MongoCollection<Document> collection = database.getCollection("Contacts");
 		
-		Document doc = new Document("name", "MongoDB")
-                .append("type", "database")
-                .append("count", 1)
-                .append("versions", Arrays.asList("v3.2", "v3.0", "v2.6"))
-                .append("info", new Document("x", 203).append("y", 102));
-		
-		collection.insertOne(doc);
-	}
+		//used to scrape database and add the data to the HashMap
+		List<Document> vertex = (List<Document>) collection.find().into(new ArrayList<Document>());
+		for (Document node : vertex) {		
+			int name = Integer.parseInt(node.getString("name"));
+			@SuppressWarnings("unchecked")
+			List<String> edges = (List<String>) node.get("Connections");
+			List<Integer> new_edges = edges.stream().map(s -> Integer.parseInt(s)).collect(Collectors.toList());
+			vertices.put(name, new_edges);		 
+		}	
+	}	
 }
