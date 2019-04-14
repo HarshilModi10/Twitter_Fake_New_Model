@@ -10,6 +10,8 @@ import java.util.*;
  * @since 03/27/2019
  */
 public class BreadthFirstSearch {
+	
+	private static boolean[] marked;
 
     /**
      * This function performs a breadth first search on the twitter user digraph
@@ -20,10 +22,10 @@ public class BreadthFirstSearch {
      * @param curTime - An integer representing the current time (Remember that we monitor a tweet for a day to see the impact it has)
      * @param printArray - A vector of Integers representing the twitter users that retweeted the tweet on that specific iteration
      */
-    public static void BFS(int source, int size, TwitterUserDiGraph G, boolean[] retweeted, int curTime, Vector<Integer> printArray) {
+    BreadthFirstSearch(int source, int size, TwitterUserDiGraph G, boolean[] retweeted, int curTime, int timeElapsed, Vector<Integer> printArray) {
         // Mark all the vertices as not visited(By default
         // set as false)
-    	boolean[] marked = new boolean[size+1];
+    	marked = new boolean[size+1];
     	Arrays.fill(marked, false);
 
         // Create a queue for BFS
@@ -52,7 +54,7 @@ public class BreadthFirstSearch {
                 i++;
                 if (!marked[j]) {
                     marked[j] =  true;
-                    if (!retweeted[j] && RandomGenerator.getChance(curTime) > 0.1  ) {	// Subject to Change
+                    if (!retweeted[j] && RandomGenerator.getChance(timeElapsed, curTime)) {	// Subject to Change
                     	retweeted[j] = true;
                     	queue.add(j);
                     	printArray.add(j);
@@ -64,8 +66,9 @@ public class BreadthFirstSearch {
             }
 
         }
-
-
-
+    }
+    
+    public boolean isMarked(int v) {
+    	return marked[v];
     }
 }
