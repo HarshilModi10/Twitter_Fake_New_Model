@@ -21,6 +21,7 @@ public class BreadthFirstSearch {
      * @param retweeted - A boolean array denoting if a given user has retweeted a fake news tweet yet
      * @param curTime - An integer representing the current time (Remember that we monitor a tweet for a day to see the impact it has)
      * @param printArray - A vector of Integers representing the twitter users that retweeted the tweet on that specific iteration
+     * @param timeElapsed - An integer representing the amount of time passed from when the tweet originated from
      */
     BreadthFirstSearch(int source, int size, TwitterUserDiGraph G, boolean[] retweeted, int curTime, int timeElapsed, Vector<Integer> printArray) {
         // Mark all the vertices as not visited(By default
