@@ -3,14 +3,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.bson.Document;
-
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/*
+This class is used to connect to the MongoDB provided and read data 
+from the database.
+This portion is not needed for testing purposes of the software!
+*/
 public class reading {
 
 	public static void main(String[] args)throws Exception 
