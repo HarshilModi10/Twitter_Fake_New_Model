@@ -10,11 +10,12 @@ import java.util.*;
 public class BinarySearch {
 
 	/**
-	 * This method performs a binary search on a given list
-	 * @param list - An ArrayList representing the adjacency list of a given node
-	 * @param left - An integer value representing the leftmost index in the sublist
-	 * @param right - An integer value representing the rightmost index in the sublist
-	 * @param x - An integer representing the value we are searching for
+	 * This method performs a binary search on a given list.
+	 * @param list - An ArrayList representing the adjacency list of a given node.
+	 * @param left - An integer value representing the leftmost index in the sublist.
+	 * @param right - An integer value representing the rightmost index in the sublist.
+	 * @param x - An integer representing the value we are searching for.
+	 * @return boolean value indicating whether the value is contained within the list.
 	 */
 	public static boolean Search(List<Integer> list, int left, int right, int x) {
 		// Creating the midpoint of the subarray

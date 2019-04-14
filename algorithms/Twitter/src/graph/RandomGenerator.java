@@ -11,7 +11,9 @@ public class RandomGenerator {
 	
 	/**
 	 * This method returns a boolean value on what the chance is for a user
-	 * @param time - This represents the current time that users are looking at the tweet
+	 * @param currTime - This represents the current time that users are looking at the tweet.
+	 * @param timeElapsed - This represents the total time elapsed from the initial fake tweet.
+	 * @return boolean value indicating whether the node will be marked as "retweeted"
 	 */
 	public static boolean getChance(int timeElapsed, int currTime) {
 		// The times that users are most active on twitter
