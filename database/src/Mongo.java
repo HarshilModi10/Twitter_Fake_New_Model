@@ -10,6 +10,13 @@ import java.util.Map;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+/*
+This class is used to connect to the MongoDB provided and to write 
+to the database.
+This portion is not needed for testing purposes of the software!
+
+*/
 public class Mongo {
 
 
